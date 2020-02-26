@@ -1,0 +1,26 @@
+﻿@using NewHire.Core;
+@model Job
+
+<div class="panel card">
+    <div class="panel-heading">
+        <h3>@Model.Name</h3>
+    </div>
+    <div class="panel card-body">
+        <span>Location: @Model.Location</span>
+        <span>Department: @Model.Department</span>
+    </div>
+    <div class="panel card-footer">
+        <a class="btn btn-lg"
+           asp-page="./Detail" asp-route-jobId="@Model.Id">
+            <i class="fas fa-search-plus"></i>
+        </a>
+        <a class="btn btn-lg"
+           asp-page="./Edit" asp-route-jobId="@Model.Id">
+            <i class="fas fa-edit"></i>
+        </a>
+        <a class="btn btn-lg"
+           asp-page="./Delete" asp-route-jobId="@Model.Id">
+            <i class="fas fa-trash"></i>
+        </a>
+    </div>
+</div>

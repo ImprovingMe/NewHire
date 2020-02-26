@@ -1,0 +1,66 @@
+﻿@page
+@model NewHire.Pages.Jobs.ListModel
+@{
+    ViewData["Title"] = "Jobs";
+}
+
+<h1>Jobs</h1>
+
+<form method="get">
+    <div class="row no-gutters">
+        <div class="col">
+            <input class="form-control border-secondary border-right-0 rounded-0" type="search" asp-for="SearchTerm">
+        </div>
+        <div class="col-auto">
+            <button class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+@*<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Location</th>
+        <th>Department</th>
+    </tr>
+    @foreach (var job in Model.Jobs)
+    {
+<tr>
+    <td>@job.Name</td>
+    <td>@job.Location</td>
+    <td>@job.Department</td>
+    <td>
+        <a class="btn btn-lg"
+           asp-page="./Detail" asp-route-jobId="@job.Id">
+            <i class="fas fa-search-plus"></i>
+        </a>
+        <a class="btn btn-lg"
+           asp-page="./Edit" asp-route-jobId="@job.Id">
+            <i class="fas fa-edit"></i>
+        </a>
+        <a class="btn btn-lg"
+           asp-page="./Delete" asp-route-jobId="@job.Id">
+            <i class="fas fa-trash"></i>
+        </a>
+    </td>
+</tr>
+    }
+</table>*@
+
+@foreach(var job in Model.Jobs)
+{
+    <partial name="_Summary" model="job" />
+}
+
+
+<a asp-page="./Edit" class="btn btn-primary">Add New</a>
+
+
+@section footer
+{
+    <div>@Model.Message</div>
+}

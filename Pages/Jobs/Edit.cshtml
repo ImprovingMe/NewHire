@@ -1,0 +1,32 @@
+﻿@page "{jobId:int?}"
+@model NewHire.Pages.Jobs.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editing @Model.Job.Name</h1>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Job.Id" />
+    <div class="form-group">
+        <label asp-for="Job.Name"></label>
+        <input asp-for="Job.Name" class="form-control" />
+        <span class="text-danger" asp-validation-for="Job.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Job.Location"></label>
+        <input asp-for="Job.Location" class="form-control" />
+        <span class="text-danger" asp-validation-for="Job.Location"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Job.Department"></label>
+        <select class="form-control" asp-for="Job.Department"
+                asp-items="Model.Departments">
+        </select>
+        <span class="text-danger" asp-validation-for="Job.Department"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
